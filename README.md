@@ -6,3 +6,5 @@ are required to allow less secure apps with that gmail account.
 **pip install -r requirements.txt**
 
 The Batch File is an example of usage. 
+
+An example of a log file has been provided. 
