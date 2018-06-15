@@ -46,8 +46,9 @@ def main():
         splicedLog = log[14:-6] #splice string to make it more readable
         trueLogs.append(splicedLog + ' ') #add an empty space to make it more readable
     emailFailed = HandleEmail.try_email() #get boolean to see if you can access internet to send email
-    HandleEmail.createFile(trueLogs) #create Log File
-    HandleEmail.send_email(user, passwd, receiver,emailFailed) #send email
-
+    if emailFailed == False:
+        HandleEmail.createFile(trueLogs) #create Log File
+        HandleEmail.send_email(user, passwd, receiver,emailFailed) #send email
+        
 if __name__ == '__main__':
     main()
